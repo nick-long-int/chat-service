@@ -1,7 +1,6 @@
 package ru.gnidenko.chatservice.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.gnidenko.chatservice.dto.ChatDto;
@@ -14,7 +13,6 @@ import ru.gnidenko.chatservice.mapper.MessageMapper;
 import ru.gnidenko.chatservice.repo.ChatRepo;
 import ru.gnidenko.chatservice.repo.MessageRepo;
 
-import javax.swing.text.html.Option;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

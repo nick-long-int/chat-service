@@ -8,6 +8,7 @@ import ru.gnidenko.chatservice.entity.Message;
 public interface MessageMapper {
 
     Message messageDtoToMessage(MessageDto messageDto);
+
     MessageDto messageToMessageDto(Message message);
 
 }

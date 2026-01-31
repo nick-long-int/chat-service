@@ -22,17 +22,17 @@ public class ChatController {
     private final ChatService chatService;
 
     @PostMapping
-    public ResponseEntity<ChatDto> enterChat(@RequestParam String username){
+    public ResponseEntity<ChatDto> enterChat(@RequestParam String username) {
         return ResponseEntity.ok(chatService.enterChat(username));
     }
 
     @GetMapping("/{chatId}/messages")
-    public ResponseEntity<List<MessageDto>> getAllMessagesInChat(@PathVariable String chatId){
+    public ResponseEntity<List<MessageDto>> getAllMessagesInChat(@PathVariable String chatId) {
         return ResponseEntity.ok(chatService.getAllMessages(chatId));
     }
 
     @PostMapping("/{chatId}/messages")
-    public ResponseEntity<Void> sendMessage(@PathVariable String chatId, @RequestBody MessageDto message){
+    public ResponseEntity<Void> sendMessage(@PathVariable String chatId, @RequestBody MessageDto message) {
         chatService.sendMessage(chatId, message);
         return ResponseEntity.ok().build();
     }
