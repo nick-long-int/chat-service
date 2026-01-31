@@ -2,6 +2,7 @@ package ru.gnidenko.chatservice.config;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
+import com.mongodb.MongoCredential;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 @EnableMongoRepositories(basePackages = "ru.gnidenko.chatservice.repo")
 public class MongoDbConfig {
 
-    @Value("${spring.mongodb.uri}")
+    @Value("${spring.data.mongodb.uri}")
     private String mongoUri;
 
     @Bean

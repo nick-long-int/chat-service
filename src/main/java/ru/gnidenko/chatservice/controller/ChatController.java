@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.gnidenko.chatservice.dto.ChatDto;
 import ru.gnidenko.chatservice.dto.MessageDto;
-import ru.gnidenko.chatservice.entity.Message;
 import ru.gnidenko.chatservice.service.ChatService;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class ChatController {
     private final ChatService chatService;
 
     @PostMapping
-    public ResponseEntity<ChatDto> enterChat(@RequestBody String username){
+    public ResponseEntity<ChatDto> enterChat(@RequestParam String username){
         return ResponseEntity.ok(chatService.enterChat(username));
     }
 
