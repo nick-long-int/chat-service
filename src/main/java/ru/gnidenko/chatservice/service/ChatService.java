@@ -8,6 +8,7 @@ import ru.gnidenko.chatservice.dto.ChatDto;
 import ru.gnidenko.chatservice.dto.MessageDto;
 import ru.gnidenko.chatservice.entity.Chat;
 import ru.gnidenko.chatservice.entity.Message;
+import ru.gnidenko.chatservice.entity.MessageType;
 import ru.gnidenko.chatservice.mapper.ChatMapper;
 import ru.gnidenko.chatservice.mapper.MessageMapper;
 import ru.gnidenko.chatservice.repo.ChatRepo;
@@ -50,5 +51,14 @@ public class ChatService {
         return messages.stream()
             .map(messageMapper::messageToMessageDto)
             .toList();
+    }
+
+    @Transactional
+    public void sendMessage(String chatId, MessageDto message) {
+        Message newMessage = messageMapper.messageDtoToMessage(message);
+        newMessage.setChatId(chatId);
+        newMessage.setType(MessageType.TEXT);
+        //todo через кафку обработку сообщений
+        messageRepo.save(newMessage);
     }
 }
